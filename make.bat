@@ -7,7 +7,7 @@ goto checkIfInPATH
 
 :mainProgram
 :: Identify if the supplied argument is with .c or without .c
-echo %* | findstr /r /c:".c"
+echo %* | findstr /r /c:".c" >nul 2>&1
 
 if %errorlevel% equ 0 goto withC
 if %errorlevel% neq 0 goto withoutC 
@@ -67,4 +67,5 @@ goto mainProgram
 
 :skipFunctions
 :: A function to trigger so that the program will not mindlessly trigger other functions
+
 exit /b
